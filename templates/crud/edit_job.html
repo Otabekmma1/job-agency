@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+            rel="stylesheet"
+    />
+
+    <title>E'lonni tahrirlash</title>
+</head>
+<body>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="{% static 'photo/job2.jpg' %}"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form method="post">
+                    {% csrf_token %}
+                    <div>
+                        <h2 class="mb-2 text-center text-white mt-5 me-3" style="background-color: #3d8528;">E'lon
+                            qo'shish</h2>
+
+                    </div>
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="form3Example3" name="name" value="{{job.name}}" class="form-control form-control-lg"
+                               placeholder="Ishni nomini kiriting"/>
+                        <label class="form-label" for="form3Example3">Ish nomi</label>
+                    </div>
+                    <div class="form-gorup mb-4">
+                        <select id="category" class="form-control form-control-lg text-muted" name="category" required>
+                            <option selected>{{job.category}}</option>
+                            {% for i in categories %}
+                            <option value="{{ i.name }}">{{ i.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <textarea id="form3Example4" name="deman"  class="form-control form-control-lg"
+                                  rows="4">{{job.deman}}</textarea>
+                        <label class="form-label" for="form3Example4">Talab</label>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="number" id="form3Example5" name="salary"  value="{{job.salary}}" class="form-control form-control-lg"
+                               placeholder="Maoshni kiriting"/>
+                        <label class="form-label" for="form3Example5">Maosh</label>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <a href="{% url 'index' %}" type="button" class="btn btn-secondary text-success">Orqaga</a>
+                        <button class="btn  text-white" style="background-color: #3d8528;" type="submit">Submit</button>
+
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+></script>
+</body>
+</html>

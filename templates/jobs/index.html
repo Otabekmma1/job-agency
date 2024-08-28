@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+{% block content %}
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+<div class="main-banner header-text" id="top">
+    <div class="Modern-Slider">
+        <!-- Item -->
+        <div class="item item-1">
+            <div class="img-fill">
+                <div class="text-content">
+                    <h6>Job Agency bilan !</h6>
+                    <h4>Orzuyingizdagi ishni toping</h4>
+<!--                    <p>Magni deserunt dolorem consectetur adipisicing elit. Corporis molestiae optio, laudantium odio-->
+<!--                        quod rerum maiores, omnis unde quae illo.</p>-->
+                    <a href="{% url 'jobs' %}" class="filled-button">Barcha ishlar</a>
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+        <!-- Item -->
+        <div class="item item-3">
+            <div class="img-fill">
+                <div class="text-content">
+                    <h6>Bu yerda !</h6>
+                    <h4>Ish e'lon qilishingiz yoki <br>Ish oxtarishingiz mumkin</h4>
+                    <a href="{% url 'contact' %}" class="filled-button">Biz bilan bog'lanish</a>
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+    </div>
+</div>
+{% if not user.is_authenticated %}
+    <div class="request-form">
+      <div class="container">
+          <div class="text-center">
+            <h4>!!! Saytdan to'liq foydalanish uchun ro'yxatdan o'ting !!!</h4>
+          </div>
+      </div>
+    </div>
+{% endif %}
+<!-- Banner Ends Here -->
+<div class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>So'ngi qo'shilgan <em>ishlar</em></h2>
+                </div>
+            </div>
+
+            {% for job in jobs_index %}
+            <div class="col-md-4">
+                <div class="service-item">
+                    <img src="{{job.category.photo.url}}" alt="">
+                    <div class="down-content">
+                        <h4>{{job.name}}</h4>
+                        <div style="margin-bottom:10px;">
+                            <span> <sup>$</sup>{{job.salary}}  </span>
+                        </div>
+
+                        <p>{{job.category}}</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'job-detail' job.id %}" class="filled-button">Batafsil ko'rish</a>
+                        {% endif %}
+                        <p class="mb-0" style="text-align: left; margin-top: 20px;">{{job.updated}}</p>
+                        <p class="mb-0" style="text-align: right; margin-top: -30px;">{{job.views}} <i style="font-size:15px;" class="fa">&#xf06e;</i></p>
+
+                    </div>
+                </div>
+
+                <br>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+<div class="callback-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Shikoyat <em>va</em> takliflar uchun</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="contact-form">
+                    <form id="contact" action="" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <textarea name="text" rows="6" class="form-control" id="message"
+                                              placeholder="Xabaringizni yozing" required=""></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                {%if user.is_authenticated %}
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="border-button">Xabarni yuborish</button>
+                                </fieldset>
+                                {%else%}
+                                  <fieldset>
+                                    <a href= "{% url 'login' %}" type="button" class="border-button">Avval akkauntingizga kiring</a>
+                                </fieldset>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+{% endblock content %}

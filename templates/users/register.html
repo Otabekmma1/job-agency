@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+  rel="stylesheet"
+/>
+    <title>Title</title>
+</head>
+<body>
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://buxmontletip.com/wp-content/uploads/2023/08/businessmen-meeting.jpg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Ro'yxatdan o'tish</h2>
+
+              <form method="post">
+                  {% csrf_token %}
+
+<!--                <div data-mdb-input-init class="form-outline  col-md-6 mb-4 pb-2">-->
+<!--                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />-->
+<!--                  <label class="form-label" for="form3Example1cg">Ism</label>-->
+<!--                </div>-->
+
+<!--                <div data-mdb-input-init class="form-outline col-md-6 mb-4 pb-2">-->
+<!--                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />-->
+<!--                  <label class="form-label" for="form3Example3cg">Familiya</label>-->
+<!--                </div>-->
+                    <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" name="first_name" id="form3Examplev2" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev2">Ism</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text"name="last_name" id="form3Examplev3" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev3">Familiya</label>
+                      </div>
+
+                    </div>
+                  </div>
+                    <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="email" name="email" id="form3Examplev4" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev4">Pochta</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" name="username" id="form3Examplev5" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev5">Username</label>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="password" name="password1" id="form3Examplev6" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev6">Parol</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="password" name="password2" id="form3Examplev7" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev7">Parolni takrorlang</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                 <div class="col-12 pt-2">
+                            <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit" data-mdb-ripple-init>Ro'yxatdan o'tish</button>
+                        </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Akkauntingiz bormi? <a href="{% url 'login' %}"
+                    class="fw-bold text-body"><u>Bu yerdan kiring</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+></script>
+</body>
+</html>

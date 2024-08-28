@@ -1,0 +1,102 @@
+{% load static %}
+<!-- Header -->
+<div class="sub-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <ul class="left-info">
+                    <li><a href="#"><i class="fa fa-envelope"></i>contact@company.com</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i>+998(99)123-45-67</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="right-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><h2>Job Agency <em> Website</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Bosh sahifa
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'jobs' %}">Ishlar</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 100px;">
+                        <a class="nav-link" href="{% url 'contact' %}">Biz bilan bog'lanish</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add' %}">E'lon qo'shish</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'profile' %}">
+                            {% if user.photo %}
+                            <img
+                                    src="{{user.photo.url}}"
+                                    class="rounded-circle"
+                                    style="margin-top: -10px;"
+                                    height="30"
+                                    alt="img"
+                                    loading="lazy"
+                            />
+                            {% else %}
+                               <img
+                                    src="{% static 'photo/img.jpg' %}"
+                                    class="rounded-circle"
+                                    style="margin-top: -10px;"
+                                    height="30"
+                                    alt="img"
+                                    loading="lazy"
+                            />
+                            {% endif  %}
+                        </a>
+                    </li>
+                    <li class="" style="margin-top: -17px;">
+                        <a class="nav-link" href="{% url 'logout' %}"><i style="font-size: 17px;" class="fa mt-3 text-white">&#xf08b;</i></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Kirish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Ro'yxatdan o'tish</a>
+                    </li>
+                    {% endif %}
+
+
+            </ul>
+        </div>
+        </div>
+
+        <!-- Collapsible wrapper -->
+
+        <!--        <div class="col-0 mr-2">-->
+        <!--            <a href="{%url 'login' %}" type="button" class="btn btn-outline-success btn-rounded" data-mdb-ripple-init  data-mdb-ripple-color="dark">Kirish</a>-->
+        <!--                        </div>-->
+        <!--        <div class="mr-1">-->
+        <!--                    <a href="{% url 'register' %}" type="button" class="btn btn-outline-success btn-rounded" data-mdb-ripple-init  data-mdb-ripple-color="dark">Ro'yxatdan o'tish</a>-->
+        <!--        </div>-->
+
+        </div>
+        </div>
+    </nav>
+</header>
+
+
