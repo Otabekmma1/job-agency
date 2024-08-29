@@ -38,7 +38,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 {% endfor %}
-              <form method="post">
+              <form method="post" action="/login/">
                 {% csrf_token %}
 
                 <div data-mdb-input-init class="form-outline mb-4">
